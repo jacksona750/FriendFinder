@@ -1,6 +1,11 @@
+var friendData = require("../data/friends")
+
+module.exports = function(app) {
+
+
 // Display all friend possibilities
 app.get("/api/friends", function(req, res) {
-    return res.json(friends);
+    return res.json(friendData);
 });
 
 // Create new friend based on form input
@@ -11,11 +16,10 @@ app.post("/api/friends", function(req, res) {
 
     console.log(newFriend);
 
-    friends.push(newFriend);
+    friendData.push(newFriend);
 
     res.json(newFriend);
+    // res.json(true)
 });
 
-app.listen(PORT, function() {
-    console.log("App listeing on PORT " + PORT);
-});
+}
