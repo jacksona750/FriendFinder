@@ -12,14 +12,13 @@ app.get("/api/friends", function(req, res) {
 app.post("/api/friends", function(req, res) {
     var newFriend = req.body;
 
-    newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
+    // newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
 
     console.log(newFriend);
 
     friendData.push(newFriend);
 
-    res.json(newFriend);
-    // res.json(true)
+    res.json(newFriend)
 });
 
 }

@@ -47,7 +47,7 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Question 2</strong></h3>
+    <!-- <h3><strong>Question 2</strong></h3>
     <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
     <select class="chosen-select" id="q2">
       <option value=""></option>
@@ -149,7 +149,7 @@
       <option value="3">3</option>
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
-    </select>
+    </select> -->
 
     <br>
     <br>
@@ -179,7 +179,7 @@
         </div>
         <div class="modal-body">
           <h2 id="match-name"></h2>
-          <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+          <img id="match-img" src="" alt="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -214,7 +214,7 @@
     // Capture the form inputs
     $("#submit").on("click", function(event) {
       event.preventDefault();
-
+        
       // Form validation
       function validateForm() {
         var isValid = true;
@@ -241,20 +241,28 @@
           photo: $("#photo").val(),
           scores: [
             $("#q1").val(),
-            $("#q2").val(),
-            $("#q3").val(),
-            $("#q4").val(),
-            $("#q5").val(),
-            $("#q6").val(),
-            $("#q7").val(),
-            $("#q8").val(),
-            $("#q9").val(),
-            $("#q10").val()
+            // $("#q2").val(),
+            // $("#q3").val(),
+            // $("#q4").val(),
+            // $("#q5").val(),
+            // $("#q6").val(),
+            // $("#q7").val(),
+            // $("#q8").val(),
+            // $("#q9").val(),
+            // $("#q10").val()
           ]
         };
-        console.log(userData)
+
         // AJAX post the data to the friends API.
         $.post("/api/friends", userData, function(data) {
+            console.log(userData)
+            // Pull the scores for each friend in the NewFriends array
+            // for (var i=0; i < friendsList.length; i++) {
+            //     var eachPerson = friendsList[i].scores;
+            //     var thisPerson = eachPerson.scores;
+            //     console.log(eachPerson)
+            //     console.log(thisPerson)
+            // }
 
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
           $("#match-name").text(data.name);

@@ -1,3 +1,3 @@
-var newFriend = [];
+var friendsList = [];
 
-module.exports = newFriend;
+module.exports = friendsList;
